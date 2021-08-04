@@ -9,13 +9,13 @@ function attach() {
     if (container instanceof HTMLElement) {
         var style = window.getComputedStyle(container);
 
-        if (style.position === 'static') {
-            container.style.position = 'relative';
+        if (style.position === "static") {
+            container.style.position = "relative";
         }
     }
 
-    container.addEventListener('scroll', this._scroll, { passive: true });
-    window.addEventListener('resize', this._scroll, { passive: true });
+    container.addEventListener("scroll", this._scroll, { passive: true });
+    window.addEventListener("resize", this._scroll, { passive: true });
     this._scroll();
     this.attached = true;
 }
@@ -28,13 +28,16 @@ function attach() {
  * @return {boolean} A boolean value that indicates wether is on or off the viewport.
  */
 function inViewport(el) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { tolerance: 0 };
+    var options =
+        arguments.length > 1 && arguments[1] !== undefined
+            ? arguments[1]
+            : { tolerance: 0 };
 
     if (!el) {
-        throw new Error('You should specify the element you want to test');
+        throw new Error("You should specify the element you want to test");
     }
 
-    if (typeof el === 'string') {
+    if (typeof el === "string") {
         el = document.querySelector(el);
     }
 
@@ -43,15 +46,14 @@ function inViewport(el) {
     return (
         // Check bottom boundary
         elRect.bottom - options.tolerance > 0 &&
-
         // Check right boundary
         elRect.right - options.tolerance > 0 &&
-
         // Check left boundary
-        elRect.left + options.tolerance < (window.innerWidth || document.documentElement.clientWidth) &&
-
+        elRect.left + options.tolerance <
+            (window.innerWidth || document.documentElement.clientWidth) &&
         // Check top boundary
-        elRect.top + options.tolerance < (window.innerHeight || document.documentElement.clientHeight)
+        elRect.top + options.tolerance <
+            (window.innerHeight || document.documentElement.clientHeight)
     );
 }
 
@@ -63,56 +65,64 @@ function inViewport(el) {
  * @return {boolean} A boolean value that indicates wether is on or off the container.
  */
 function inContainer(el) {
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { tolerance: 0, container: '' };
+    var options =
+        arguments.length > 1 && arguments[1] !== undefined
+            ? arguments[1]
+            : { tolerance: 0, container: "" };
 
     if (!el) {
-        throw new Error('You should specify the element you want to test');
+        throw new Error("You should specify the element you want to test");
     }
 
-    if (typeof el === 'string') {
+    if (typeof el === "string") {
         el = document.querySelector(el);
     }
-    if (typeof options === 'string') {
+    if (typeof options === "string") {
         options = {
             tolerance: 0,
-            container: document.querySelector(options)
+            container: document.querySelector(options),
         };
     }
-    if (typeof options.container === 'string') {
+    if (typeof options.container === "string") {
         options.container = document.querySelector(options.container);
     }
     if (options instanceof HTMLElement) {
         options = {
             tolerance: 0,
-            container: options
+            container: options,
         };
     }
     if (!options.container) {
-        throw new Error('You should specify a container element');
+        throw new Error("You should specify a container element");
     }
 
     var containerRect = options.container.getBoundingClientRect();
 
     return (
         // // Check bottom boundary
-        el.offsetTop + el.clientHeight - options.tolerance > options.container.scrollTop &&
-
+        el.offsetTop + el.clientHeight - options.tolerance >
+            options.container.scrollTop &&
         // Check right boundary
-        el.offsetLeft + el.clientWidth - options.tolerance > options.container.scrollLeft &&
-
+        el.offsetLeft + el.clientWidth - options.tolerance >
+            options.container.scrollLeft &&
         // Check left boundary
-        el.offsetLeft + options.tolerance < containerRect.width + options.container.scrollLeft &&
-
+        el.offsetLeft + options.tolerance <
+            containerRect.width + options.container.scrollLeft &&
         // // Check top boundary
-        el.offsetTop + options.tolerance < containerRect.height + options.container.scrollTop
+        el.offsetTop + options.tolerance <
+            containerRect.height + options.container.scrollTop
     );
 }
 
 // TODO: Refactor this so it can be easily tested
 /* istanbul ignore next */
 function eventHandler() {
-    var trackedElements = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : { tolerance: 0 };
+    var trackedElements =
+        arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var options =
+        arguments.length > 1 && arguments[1] !== undefined
+            ? arguments[1]
+            : { tolerance: 0 };
 
     var selectors = Object.keys(trackedElements);
     var testVisibility = void 0;
@@ -137,18 +147,34 @@ function eventHandler() {
             if (item.isVisible === true && item.wasVisible === false) {
                 if (!trackedElements[selector].enter) return;
 
-                Object.keys(trackedElements[selector].enter).forEach(function (callback) {
-                    if (typeof trackedElements[selector].enter[callback] === 'function') {
-                        trackedElements[selector].enter[callback](item.node, 'enter');
+                Object.keys(trackedElements[selector].enter).forEach(function (
+                    callback
+                ) {
+                    if (
+                        typeof trackedElements[selector].enter[callback] ===
+                        "function"
+                    ) {
+                        trackedElements[selector].enter[callback](
+                            item.node,
+                            "enter"
+                        );
                     }
                 });
             }
             if (item.isVisible === false && item.wasVisible === true) {
                 if (!trackedElements[selector].leave) return;
 
-                Object.keys(trackedElements[selector].leave).forEach(function (callback) {
-                    if (typeof trackedElements[selector].leave[callback] === 'function') {
-                        trackedElements[selector].leave[callback](item.node, 'leave');
+                Object.keys(trackedElements[selector].leave).forEach(function (
+                    callback
+                ) {
+                    if (
+                        typeof trackedElements[selector].leave[callback] ===
+                        "function"
+                    ) {
+                        trackedElements[selector].leave[callback](
+                            item.node,
+                            "leave"
+                        );
                     }
                 });
             }
@@ -181,9 +207,9 @@ function debouncedScroll() {
  * @return {void}
  */
 function destroy() {
-  this.options.container.removeEventListener('scroll', this._scroll);
-  window.removeEventListener('resize', this._scroll);
-  this.attached = false;
+    this.options.container.removeEventListener("scroll", this._scroll);
+    window.removeEventListener("resize", this._scroll);
+    this.attached = false;
 }
 
 /**
@@ -195,13 +221,18 @@ function destroy() {
  * @return {void}
  */
 function off(event, selector, handler) {
-    var enterCallbacks = Object.keys(this.trackedElements[selector].enter || {});
-    var leaveCallbacks = Object.keys(this.trackedElements[selector].leave || {});
+    var enterCallbacks = Object.keys(
+        this.trackedElements[selector].enter || {}
+    );
+    var leaveCallbacks = Object.keys(
+        this.trackedElements[selector].leave || {}
+    );
 
     if ({}.hasOwnProperty.call(this.trackedElements, selector)) {
         if (handler) {
             if (this.trackedElements[selector][event]) {
-                var callbackName = typeof handler === 'function' ? handler.name : handler;
+                var callbackName =
+                    typeof handler === "function" ? handler.name : handler;
                 delete this.trackedElements[selector][event][callbackName];
             }
         } else {
@@ -223,11 +254,12 @@ function off(event, selector, handler) {
  * @return {void}
  */
 function on(event, selector, callback) {
-    var allowed = ['enter', 'leave'];
+    var allowed = ["enter", "leave"];
 
-    if (!event) throw new Error('No event given. Choose either enter or leave');
-    if (!selector) throw new Error('No selector to track');
-    if (allowed.indexOf(event) < 0) throw new Error(event + ' event is not supported');
+    if (!event) throw new Error("No event given. Choose either enter or leave");
+    if (!selector) throw new Error("No selector to track");
+    if (allowed.indexOf(event) < 0)
+        throw new Error(event + " event is not supported");
 
     if (!{}.hasOwnProperty.call(this.trackedElements, selector)) {
         this.trackedElements[selector] = {};
@@ -235,22 +267,27 @@ function on(event, selector, callback) {
 
     this.trackedElements[selector].nodes = [];
 
-    for (var i = 0, elems = document.querySelectorAll(selector); i < elems.length; i++) {
+    for (
+        var i = 0, elems = document.querySelectorAll(selector);
+        i < elems.length;
+        i++
+    ) {
         var item = {
             isVisible: false,
             wasVisible: false,
-            node: elems[i]
+            node: elems[i],
         };
 
         this.trackedElements[selector].nodes.push(item);
     }
 
-    if (typeof callback === 'function') {
+    if (typeof callback === "function") {
         if (!this.trackedElements[selector][event]) {
             this.trackedElements[selector][event] = {};
         }
 
-        this.trackedElements[selector][event][callback.name || 'anonymous'] = callback;
+        this.trackedElements[selector][event][callback.name || "anonymous"] =
+            callback;
     }
 }
 
@@ -263,7 +300,8 @@ function on(event, selector, callback) {
  * @return {void}
  */
 function observeDOM(obj, callback) {
-    var MutationObserver = window.MutationObserver || window.WebKitMutationObserver;
+    var MutationObserver =
+        window.MutationObserver || window.WebKitMutationObserver;
 
     /* istanbul ignore else */
     if (MutationObserver) {
@@ -271,11 +309,11 @@ function observeDOM(obj, callback) {
 
         obs.observe(obj, {
             childList: true,
-            subtree: true
+            subtree: true,
         });
     } else {
-        obj.addEventListener('DOMNodeInserted', callback, false);
-        obj.addEventListener('DOMNodeRemoved', callback, false);
+        obj.addEventListener("DOMNodeInserted", callback, false);
+        obj.addEventListener("DOMNodeRemoved", callback, false);
     }
 }
 
@@ -288,7 +326,10 @@ function observeDOM(obj, callback) {
 function OnScreen() {
     var _this = this;
 
-    var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : { tolerance: 0, debounce: 100, container: window };
+    var options =
+        arguments.length > 0 && arguments[0] !== undefined
+            ? arguments[0]
+            : { tolerance: 0, debounce: 100, container: window };
 
     this.options = {};
     this.trackedElements = {};
@@ -300,7 +341,7 @@ function OnScreen() {
             get: function get() {
                 var container = void 0;
 
-                if (typeof options.container === 'string') {
+                if (typeof options.container === "string") {
                     container = document.querySelector(options.container);
                 } else if (options.container instanceof HTMLElement) {
                     container = options.container;
@@ -310,7 +351,7 @@ function OnScreen() {
             },
             set: function set(value) {
                 options.container = value;
-            }
+            },
         },
         debounce: {
             get: function get() {
@@ -318,7 +359,7 @@ function OnScreen() {
             },
             set: function set(value) {
                 options.debounce = value;
-            }
+            },
         },
         tolerance: {
             get: function get() {
@@ -326,21 +367,21 @@ function OnScreen() {
             },
             set: function set(value) {
                 options.tolerance = value;
-            }
-        }
+            },
+        },
     });
 
-    Object.defineProperty(this, '_scroll', {
+    Object.defineProperty(this, "_scroll", {
         enumerable: false,
         configurable: false,
         writable: false,
-        value: this._debouncedScroll.call(this)
+        value: this._debouncedScroll.call(this),
     });
 
-    observeDOM(document.querySelector('body'), function () {
+    observeDOM(document.querySelector("body"), function () {
         Object.keys(_this.trackedElements).forEach(function (element) {
-            _this.on('enter', element);
-            _this.on('leave', element);
+            _this.on("enter", element);
+            _this.on("leave", element);
         });
     });
 
@@ -352,32 +393,32 @@ Object.defineProperties(OnScreen.prototype, {
         configurable: false,
         writable: false,
         enumerable: false,
-        value: debouncedScroll
+        value: debouncedScroll,
     },
     attach: {
         configurable: false,
         writable: false,
         enumerable: false,
-        value: attach
+        value: attach,
     },
     destroy: {
         configurable: false,
         writable: false,
         enumerable: false,
-        value: destroy
+        value: destroy,
     },
     off: {
         configurable: false,
         writable: false,
         enumerable: false,
-        value: off
+        value: off,
     },
     on: {
         configurable: false,
         writable: false,
         enumerable: false,
-        value: on
-    }
+        value: on,
+    },
 });
 
 OnScreen.check = inViewport;

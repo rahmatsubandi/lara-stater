@@ -2,41 +2,37 @@
 // Onscreen - viewport checker
 //
 
-'use strict';
+"use strict";
 
-var OnScreen = (function() {
+var OnScreen = (function () {
+    // Variables
 
-	// Variables
+    var $onscreen = $('[data-toggle="on-screen"]');
 
-	var $onscreen = $('[data-toggle="on-screen"]');
+    // Methods
 
-
-	// Methods
-
-	function init($this) {
-		var options = {
+    function init($this) {
+        var options = {
             container: window,
-            direction: 'vertical',
-            doIn: function() {
+            direction: "vertical",
+            doIn: function () {
                 //alert();
             },
-            doOut: function() {
+            doOut: function () {
                 // Do something to the matched elements as they get off scren
             },
             tolerance: 200,
             throttle: 50,
-            toggleClass: 'on-screen',
-            debug: false
-		};
+            toggleClass: "on-screen",
+            debug: false,
+        };
 
-		$this.onScreen(options);
-	}
+        $this.onScreen(options);
+    }
 
+    // Events
 
-	// Events
-
-	if ($onscreen.length) {
-		init($onscreen);
-	}
-
+    if ($onscreen.length) {
+        init($onscreen);
+    }
 })();
