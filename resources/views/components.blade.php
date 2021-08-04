@@ -33,7 +33,7 @@
                         <h5 class="card-title text-uppercase text-muted mb-0">
                             New users
                         </h5>
-                        <span class="h2 font-weight-bold mb-0">{{ $users->count() }}</span>
+                        <span class="h2 font-weight-bold mb-0">17</span>
                     </div>
                     <div class="col-auto">
                         <div class="icon icon-shape bg-gradient-orange text-white rounded-circle shadow">

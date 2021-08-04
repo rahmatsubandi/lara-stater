@@ -4,12 +4,16 @@
         <div class="sidenav-header  d-flex  align-items-center">
             <a class="navbar-brand" href="{{ route('home') }}" data-toggle="tooltip" data-original-title="{{ setting('company_name') }}">
                 @if (setting('company_logo'))
-                <img alt="{{ setting('company_name') }}"
+                <div class="text-center">
+                    <img alt="{{ setting('company_name') }}"
                     height="45"
                     class="navbar-brand-img"
                     src="{{ asset(setting('company_logo')) }}">
+                </div>
+                @elseif (strlen(setting('company_name')) < 15)
+                {{ substr(setting('company_name'), 0, 15) }}
                 @else
-                {{ substr(setting('company_name'), 0, 15) }}...
+                {{ substr(setting('company_name'), 0, 15) }} ...
                 @endif
             </a>
             <div class=" ml-auto ">

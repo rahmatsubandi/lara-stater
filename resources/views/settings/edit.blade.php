@@ -103,8 +103,14 @@
 
                         <div class="col-lg-6">
                             <div class="form-group">
-                                {{ Form::label('default_role', 'Select default register role', ['class' => 'form-control-label']) }}
-                                {{ Form::select('default_role', $roles, setting('default_role', null), [ 'class'=> 'selectpicker form-control', 'placeholder' => 'Select role...']) }}
+                                {{-- Jika ada defaullt role nya maka pilih --}}
+                                @if(setting('default_role'))
+                                    {{ Form::label('default_role', 'Select default register role', ['class' => 'form-control-label']) }}
+                                    {{ Form::select('default_role', $roles, setting('default_role'), ['class' => 'selectpicker form-control', 'placeholder' => 'Select role...']) }}
+                                @else
+                                    {{ Form::label('default_role', 'Select default register role', ['class' => 'form-control-label']) }}
+                                    {{ Form::select('default_role', $roles, '', ['class' => 'selectpicker form-control', 'placeholder' => 'Select role...']) }}
+                                @endif
                             </div>
                         </div>
 
