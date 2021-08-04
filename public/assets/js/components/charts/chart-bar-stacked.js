@@ -2,112 +2,118 @@
 // Charts
 //
 
-'use strict';
+"use strict";
 
 //
 // Doughnut chart
 //
 
-var BarStackedChart = (function() {
+var BarStackedChart = (function () {
+    // Variables
 
-	// Variables
+    var $chart = $("#chart-bar-stacked");
 
-	var $chart = $('#chart-bar-stacked');
+    // Methods
 
+    function init($this) {
+        // Only for demo purposes - return a random number to generate datasets
+        var randomScalingFactor = function () {
+            return Math.round(Math.random() * 100);
+        };
 
-	// Methods
+        // Chart data
 
-	function init($this) {
+        var data = {
+            labels: [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+            ],
+            datasets: [
+                {
+                    label: "Dataset 1",
+                    backgroundColor: Charts.colors.theme["danger"],
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                    ],
+                },
+                {
+                    label: "Dataset 2",
+                    backgroundColor: Charts.colors.theme["primary"],
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                    ],
+                },
+                {
+                    label: "Dataset 3",
+                    backgroundColor: Charts.colors.theme["success"],
+                    data: [
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                        randomScalingFactor(),
+                    ],
+                },
+            ],
+        };
 
-		// Only for demo purposes - return a random number to generate datasets
-		var randomScalingFactor = function() {
-			return Math.round(Math.random() * 100);
-		};
+        // Options
 
+        var options = {
+            tooltips: {
+                mode: "index",
+                intersect: false,
+            },
+            responsive: true,
+            scales: {
+                xAxes: [
+                    {
+                        stacked: true,
+                    },
+                ],
+                yAxes: [
+                    {
+                        stacked: true,
+                    },
+                ],
+            },
+        };
 
-		// Chart data
+        // Init chart
 
-		var data = {
-			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-			datasets: [{
-				label: 'Dataset 1',
-				backgroundColor: Charts.colors.theme['danger'],
-				data: [
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor()
-				]
-			}, {
-				label: 'Dataset 2',
-				backgroundColor: Charts.colors.theme['primary'],
-				data: [
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor()
-				]
-			}, {
-				label: 'Dataset 3',
-				backgroundColor: Charts.colors.theme['success'],
-				data: [
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor(),
-					randomScalingFactor()
-				]
-			}]
+        var barStackedChart = new Chart($this, {
+            type: "bar",
+            data: data,
+            options: options,
+        });
 
-		};
+        // Save to jQuery object
 
+        $this.data("chart", barStackedChart);
+    }
 
-		// Options
+    // Events
 
-		var options = {
-			tooltips: {
-				mode: 'index',
-				intersect: false
-			},
-			responsive: true,
-			scales: {
-				xAxes: [{
-					stacked: true,
-				}],
-				yAxes: [{
-					stacked: true
-				}]
-			}
-		}
-
-
-		// Init chart
-
-		var barStackedChart = new Chart($this, {
-			type: 'bar',
-			data: data,
-			options: options
-		});
-
-		// Save to jQuery object
-
-		$this.data('chart', barStackedChart);
-
-	};
-
-
-	// Events
-
-	if ($chart.length) {
-		init($chart);
-	}
-
+    if ($chart.length) {
+        init($chart);
+    }
 })();

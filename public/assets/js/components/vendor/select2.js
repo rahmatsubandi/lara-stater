@@ -2,42 +2,37 @@
 // Select2.js
 //
 
-'use strict';
+"use strict";
 
-var Select2 = (function() {
+var Select2 = (function () {
+    //
+    // Variables
+    //
 
-	//
-	// Variables
-	//
+    var $select = $('[data-toggle="select"]');
 
-	var $select = $('[data-toggle="select"]');
+    //
+    // Methods
+    //
 
+    function init($this) {
+        var options = {
+            // dropdownParent: $this.closest('.modal').length ? $this.closest('.modal') : $(document.body),
+            // minimumResultsForSearch: $this.data('minimum-results-for-search'),
+            // templateResult: formatAvatar
+        };
 
-	//
-	// Methods
-	//
+        $this.select2(options);
+    }
 
-	function init($this) {
-		var options = {
-			// dropdownParent: $this.closest('.modal').length ? $this.closest('.modal') : $(document.body),
-			// minimumResultsForSearch: $this.data('minimum-results-for-search'),
-			// templateResult: formatAvatar
-		};
+    //
+    // Events
+    //
 
-		$this.select2(options);
-	}
-
-
-	//
-	// Events
-	//
-
-	if ($select.length) {
-
-		// Init selects
-		$select.each(function() {
-			init($(this));
-		});
-	}
-
+    if ($select.length) {
+        // Init selects
+        $select.each(function () {
+            init($(this));
+        });
+    }
 })();
