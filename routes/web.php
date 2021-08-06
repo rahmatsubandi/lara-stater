@@ -13,16 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return redirect()->route('home');
-});
+// Route::get('/', function () {
+//     return redirect()->route('home');
+// });
+
+Route::get('/', function(){
+    return view('home');
+})->name('home');
 
 Auth::routes(['verify'=>true]);
 
 
 Route::group(['middleware' => ['auth','verified']], function () {
 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/dashboard', 'HomeController@dashboard')->name('dashboard');
 
     Route::get('/components', function(){
         return view('components');

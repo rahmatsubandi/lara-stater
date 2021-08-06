@@ -41,8 +41,8 @@
                 </div>
             </div>
             <div class="text-center mt-4">
-                <a href="{{ url('/') }}">
-                    {{ __('Back to Home') }}
+                <a href="{{ route('login') }}">
+                    {{ __('Back to Login') }}
                 </a>
             </div>
         </div>
