@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col">
                             <h5 class="card-title text-uppercase text-muted mb-0">Total traffic</h5>
-                            <span class="h2 font-weight-bold mb-0">350,897</span>
+                            <span class="h2 font-weight-bold mb-0">Loading..</span>
                         </div>
                         <div class="col-auto">
                             <div class="icon icon-shape bg-gradient-red text-white rounded-circle shadow">
@@ -19,7 +19,6 @@
                         </div>
                     </div>
                     <p class="mt-3 mb-0 text-sm">
-                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                         <span class="text-nowrap">Since last month</span>
                     </p>
                 </div>
@@ -31,7 +30,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h5 class="card-title text-uppercase text-muted mb-0">New users</h5>
+                            <h5 class="card-title text-uppercase text-muted mb-0">Total users</h5>
                             <span class="h2 font-weight-bold mb-0">{{ $users->count() }}</span>
                         </div>
                         <div class="col-auto">
@@ -41,7 +40,6 @@
                         </div>
                     </div>
                     <p class="mt-3 mb-0 text-sm">
-                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                         <span class="text-nowrap">Since last month</span>
                     </p>
                 </div>
@@ -53,8 +51,8 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h5 class="card-title text-uppercase text-muted mb-0">Sales</h5>
-                            <span class="h2 font-weight-bold mb-0">924</span>
+                            <h5 class="card-title text-uppercase text-muted mb-0">Total Posts</h5>
+                            <span class="h2 font-weight-bold mb-0">{{ $posts->count() }}</span>
                         </div>
                         <div class="col-auto">
                             <div class="icon icon-shape bg-gradient-green text-white rounded-circle shadow">
@@ -63,7 +61,6 @@
                         </div>
                     </div>
                     <p class="mt-3 mb-0 text-sm">
-                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                         <span class="text-nowrap">Since last month</span>
                     </p>
                 </div>
@@ -75,8 +72,8 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
-                            <h5 class="card-title text-uppercase text-muted mb-0">Performance</h5>
-                            <span class="h2 font-weight-bold mb-0">49,65%</span>
+                            <h5 class="card-title text-uppercase text-muted mb-0">Total Activity</h5>
+                            <span class="h2 font-weight-bold mb-0">{{ $activitiesall->count() }}</span>
                         </div>
                         <div class="col-auto">
                             <div class="icon icon-shape bg-gradient-info text-white rounded-circle shadow">
@@ -85,7 +82,6 @@
                         </div>
                     </div>
                     <p class="mt-3 mb-0 text-sm">
-                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
                         <span class="text-nowrap">Since last month</span>
                     </p>
                 </div>
@@ -103,10 +99,10 @@
               <div class="card-header border-0">
                 <div class="row align-items-center">
                   <div class="col">
-                    <h3 class="mb-0">Page visits</h3>
+                    <h3 class="mb-0">{{ __('Activity Logs') }}</h3>
                   </div>
                   <div class="col text-right">
-                    <a href="#!" class="btn btn-sm btn-primary">See all</a>
+                    <a href="{{ url('activity-log') }}" class="btn btn-sm btn-primary">See all</a>
                   </div>
                 </div>
               </div>
@@ -115,83 +111,21 @@
                 <table class="table align-items-center table-flush">
                   <thead class="thead-light">
                     <tr>
-                      <th scope="col">Page name</th>
-                      <th scope="col">Visitors</th>
-                      <th scope="col">Unique users</th>
-                      <th scope="col">Bounce rate</th>
+                      <th scope="col">Log Name</th>
+                      <th scope="col">description</th>
+                      <th scope="col">Causer</th>
+                      <th scope="col">Created At</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <th scope="row">
-                        /dashboard/
-                      </th>
-                      <td>
-                        4,569
-                      </td>
-                      <td>
-                        340
-                      </td>
-                      <td>
-                        <i class="fas fa-arrow-up text-success mr-3"></i> 46,53%
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        /dashboard/index.html
-                      </th>
-                      <td>
-                        3,985
-                      </td>
-                      <td>
-                        319
-                      </td>
-                      <td>
-                        <i class="fas fa-arrow-down text-warning mr-3"></i> 46,53%
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        /dashboard/charts.html
-                      </th>
-                      <td>
-                        3,513
-                      </td>
-                      <td>
-                        294
-                      </td>
-                      <td>
-                        <i class="fas fa-arrow-down text-warning mr-3"></i> 36,49%
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        /dashboard/tables.html
-                      </th>
-                      <td>
-                        2,050
-                      </td>
-                      <td>
-                        147
-                      </td>
-                      <td>
-                        <i class="fas fa-arrow-up text-success mr-3"></i> 50,87%
-                      </td>
-                    </tr>
-                    <tr>
-                      <th scope="row">
-                        /dashboard/profile.html
-                      </th>
-                      <td>
-                        1,795
-                      </td>
-                      <td>
-                        190
-                      </td>
-                      <td>
-                        <i class="fas fa-arrow-down text-danger mr-3"></i> 46,53%
-                      </td>
-                    </tr>
+                    @foreach ($activities as $activity)
+                        <tr>
+                          <th>{{$activity->log_name}}</th>
+                          <td>{{$activity->description}}</td>
+                          <td>By {{ $activity->causer->name ?? '' }}</td>
+                          <td>{{ $activity->created_at->diffForHumans() }}</td>
+                        </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use Illuminate\Http\Request;
 use App\User;
+
+use Spatie\Activitylog\Models\Activity;
 
 class HomeController extends Controller
 {
@@ -29,6 +32,9 @@ class HomeController extends Controller
     public function dashboard()
     {
         $users = User::get();
-        return view('dashboard', compact('users'));
+        $posts = Post::get();
+        $activitiesall = Activity::get();
+        $activities = Activity::latest()->take(5)->get();
+        return view('dashboard', compact('users', 'posts', 'activitiesall', 'activities'));
     }
 }
