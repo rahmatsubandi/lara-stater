@@ -1,9 +1,8 @@
-<p align="center"><img src="/public/storage/files/1/favicon.png" width="100" height="100"></p>
+<p align="center"><img src="./public/assets/img/favicon.png" width="100" height="100"></p>
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-<a href="https://opencollective.com/lara-stater/tiers/sponsor/badge.svg?label=sponsor&color=brightgreen"><img alt="open collective badge" src="https://opencollective.com/lara-stater/tiers/sponsor/badge.svg?label=sponsor&color=brightgreen" alt="Sponsor" /></a>
 </p>
 <a href="https://opencollective.com/lara-stater/tiers/sponsor.svg?avatarHeight=36"><object type="image/svg+xml" data="https://opencollective.com/lara-stater/tiers/sponsor.svg?avatarHeight=36&width=600"></object></a>
 
@@ -46,5 +45,3 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-
-<script src="https://opencollective.com/lara-stater/banner.js"></script>
