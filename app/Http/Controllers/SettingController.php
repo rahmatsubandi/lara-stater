@@ -47,7 +47,9 @@ class SettingController extends Controller
         activity('activity')
         ->causedBy(Auth::user())
         ->log('view');
-        $activities = Activity::paginate(setting('record_per_page', 15));
+        // ambil activity log dengan jumlah per page 15 dan urutkan dari terbaru
+        $activities = Activity::orderBy('created_at', 'desc')->paginate(15);
+        // $activities = Activity::paginate(setting('record_per_page', 15));
         return view('settings.activity', compact('activities', 'title'));
     }
 }

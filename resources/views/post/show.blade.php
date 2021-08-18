@@ -20,42 +20,42 @@
                         </div>
                         <div class="col-sm-4">
                             @if ($post->featured_image)
-                                <a href="{{ asset('storage/'.$post->featured_image) }}" target="_blank">
-                                    <img width="150" height="150" class="img-fluid" src="{{ asset('storage/'.$post->featured_image) }}" alt="">
+                                <a href="{{ asset($post->featured_image) }}" target="_blank">
+                                    <img width="150" height="150" class="img-fluid" src="{{ asset($post->featured_image) }}" alt="">
                                 </a>
                             @endif
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             Category
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-10">
                             <strong>{{ $post->category->category_name }}</strong>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             Created By
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-10">
                             <strong>{{ $post->user->name }}</strong>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             Body
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-10">
                             <strong>{!! $post->post_body !!}</strong>
                         </div>
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-1">
+                        <div class="col-sm-2">
                             Status
                         </div>
-                        <div class="col-sm-3">
+                        <div class="col-sm-10">
                             {{ $post->status ? 'Active' : 'Disable'}}
                         </div>
                     </div>
