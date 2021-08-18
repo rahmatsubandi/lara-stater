@@ -6,6 +6,8 @@
 </p>
 <a href="https://opencollective.com/lara-stater/tiers/sponsor.svg?avatarHeight=36"><object type="image/svg+xml" data="https://opencollective.com/lara-stater/tiers/sponsor.svg?avatarHeight=36&width=600"></object></a>
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/B0B85U6Z6)
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
