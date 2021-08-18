@@ -67,6 +67,9 @@
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary mt-4">Login</button>
                             </div>
+                            <div class="text-center mt-4 mb-0">
+                                <a href="{{ route('home') }}">Back to Home</a>
+                            </div>
                             {{-- <div class="form-group mt-4 mb-0">
                                 <div class="alert alert-info">
                                    Admin Email : admin@email.com , Password: secret
