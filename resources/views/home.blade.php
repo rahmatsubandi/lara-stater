@@ -409,6 +409,12 @@
                   <a href="jvascript:void(0)"> <i class="lni lni-linkedin-original"></i> </a>
                 </li>
               </ul>
+              <div class="mt-4">
+                <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                <script type='text/javascript'>
+                  kofiwidget2.init('Sponsor Me', '#0a48b3', 'B0B85U6Z6');kofiwidget2.draw();
+                </script>
+              </div>
             </div>
           </div>
 
