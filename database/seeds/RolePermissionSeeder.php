@@ -50,9 +50,9 @@ class RolePermissionSeeder extends Seeder
         $admin->syncPermissions($permissions);
 
         $usr = User::create([
-            'name'=> 'Admin',
-            'email' => 'admin@email.com',
-            'password' => 'secret',
+            'name'=> 'Rahmat Subandi',
+            'email' => 'rhmtin12@gmail.com',
+            'password' => 'password',
             'status' => true,
             'email_verified_at' => now(),
         ]);
@@ -68,8 +68,8 @@ class RolePermissionSeeder extends Seeder
 
         $user = User::create([
             'name'=> 'User',
-            'email' => 'user@email.com',
-            'password' => 'secret',
+            'email' => 'user@larastater.com',
+            'password' => 'password',
             'status' => true,
             'email_verified_at' => now(),
         ]);
