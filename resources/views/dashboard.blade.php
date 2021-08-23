@@ -122,7 +122,7 @@
                         <tr>
                           <th>{{$activity->log_name}}</th>
                           <td>{{$activity->description}}</td>
-                          <td>By {{ $activity->causer->name ?? '' }}</td>
+                          <td>By {{ $activity->causer->name ?? 'Bot Cat' }}</td>
                           <td>{{ $activity->created_at->diffForHumans() }}</td>
                         </tr>
                     @endforeach

@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/landingpage/LineIcons.2.0.css') }}" type="text/css" />
   <link rel="stylesheet" href="{{ asset('assets/css/landingpage/animate.css') }}" type="text/css" />
   <link rel="stylesheet" href="{{ asset('assets/css/landingpage/main.css') }}" type="text/css" />
+
 </head>
 
 <body>
@@ -345,7 +346,7 @@
     <div class="container">
       <div class="section-title text-center">
         <h1 class="mb-30">Development version</h1>
-        <p>The current version is still in development or beta testing 1.1.x</p></br>
+        <p>The current version is still in development or beta testing 1.1.x</p><br />
         <a href="https://github.com/rahmatsubandi/lara-stater" target="_blank"
           class="main-btn border-btn btn-hover wow fadeInUp" rel="nofollow"><i class="lni lni-github"></i> Download
           Now</a>
@@ -409,47 +410,48 @@
                   <a href="jvascript:void(0)"> <i class="lni lni-linkedin-original"></i> </a>
                 </li>
               </ul>
-              <div class="mt-4">
-                <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
-                <script type='text/javascript'>
-                  kofiwidget2.init('Sponsor Me', '#0a48b3', 'B0B85U6Z6');kofiwidget2.draw();
-                </script>
-              </div>
             </div>
           </div>
 
           <div class="col-xl-2 col-lg-2 col-md-6">
             <div class="footer-widget">
-              <h3>About Us</h3>
+              <h3>Fast Link</h3>
               <ul class="links">
-                <li> <a href="#home">Home</a> </li>
-                <li> <a href="#features">Feature</a> </li>
-                <li> <a href="#about">About</a> </li>
-                <li> <a href="#version">Version</a> </li>
+                <ul class="links">
+                  <li> <a href="{{ route('login') }}">Login</a> </li>
+                  <li> <a href="{{ route('register') }}">Registration</a> </li>
+                  <li> <a href="{{ route('password.request') }}">Forgot Password</a> </li>
+                  <li> <a href="mailto:rhmtin12@gmail.com">Need Support ?</a> </li>
+                </ul>
               </ul>
             </div>
           </div>
 
           <div class="col-xl-3 col-lg-3 col-md-6">
             <div class="footer-widget">
-              <h3>Features</h3>
+              <h3>Analytics</h3>
               <ul class="links">
-                <li> <a href="javascript:void(0)">How it works</a> </li>
-                <li> <a href="javascript:void(0)">Privacy policy</a> </li>
-                <li> <a href="javascript:void(0)">Terms of service</a> </li>
-                <li> <a href="javascript:void(0)">Refund policy</a></li>
+                <li>
+                  <a href="https://app.splitbee.io/public/larastater.netlify.app" target="_blank"
+                    rel="noopener noreferrer">
+                    <img alt="Splitbee Analytics" src="https://splitbee.io/splitbee-badge.svg" decoding="async"
+                      data-nimg="true">
+                  </a>
+                </li>
               </ul>
             </div>
           </div>
 
           <div class="col-xl-3 col-lg-3 col-md-6">
             <div class="footer-widget">
-              <h3>Other Links</h3>
+              <h3>Sponsorship</h3>
               <ul class="links">
-                <li> <a href="{{ route('login') }}">Login</a> </li>
-                <li> <a href="{{ route('register') }}">Registration</a> </li>
-                <li> <a href="{{ route('password.request') }}">Forgot Password</a> </li>
-                <li> <a href="jvascript:void(0)">Link 4</a> </li>
+                <li>
+                  <script type='text/javascript' src='https://storage.ko-fi.com/cdn/widget/Widget_2.js'></script>
+                  <script type='text/javascript'>
+                    kofiwidget2.init('Buy me coffee', '#0a48b3', 'B0B85U6Z6');kofiwidget2.draw();
+                  </script>
+                </li>
               </ul>
             </div>
           </div>

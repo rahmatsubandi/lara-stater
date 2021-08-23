@@ -47,7 +47,7 @@
                                     <div class="input-group">
                                         <span class="input-group-btn">
                                           <a id="uploadFile" data-input="thumbnail" data-preview="holder" class="btn btn-secondary">
-                                            <i class="fa fa-picture-o"></i> Choose Logo
+                                            <i class="fas fa-image"></i> Choose Logo
                                           </a>
                                         </span>
                                         @if (setting('company_logo'))

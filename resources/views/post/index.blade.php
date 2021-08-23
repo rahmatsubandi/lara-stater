@@ -42,7 +42,7 @@
                                     <tr>
                                         <th scope="row">
                                             <div class="mx-w-440 d-flex flex-wrap">
-                                                {{$post->post_title }}
+                                                <div class="text-truncate">{{ $post->post_title }}</div>
                                             </div>
                                         </th>
                                         <td class="budget">

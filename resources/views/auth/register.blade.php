@@ -86,7 +86,7 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
-                                <a class="text-gray ml-3" href="{{ route('login') }}">
+                                <a class="text-primary ml-3" href="{{ route('login') }}">
                                     Login
                                 </a>
                             </div>
