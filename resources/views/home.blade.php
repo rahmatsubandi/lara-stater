@@ -16,7 +16,7 @@
   <link rel="stylesheet" href="{{ asset('assets/css/landingpage/LineIcons.2.0.css') }}" type="text/css" />
   <link rel="stylesheet" href="{{ asset('assets/css/landingpage/animate.css') }}" type="text/css" />
   <link rel="stylesheet" href="{{ asset('assets/css/landingpage/main.css') }}" type="text/css" />
-
+  <script async src="https://cdn.splitbee.io/sb.js"></script>
 </head>
 
 <body>
